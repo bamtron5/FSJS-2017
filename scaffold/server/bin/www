@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-import * as stack from './../main';
+let stack = require('./../main').default;
 
 let port = process.env.PORT || 3000;
 let app = stack.app;

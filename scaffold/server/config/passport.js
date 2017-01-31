@@ -1,75 +1,37 @@
-/**
- * Module dependencies.
- */
-import {Rooms} from './../models/Rooms';
-import {Messages} from './../models/Messages';
-import * as stack from './../main';
+'use strict';
 
-let port = process.env.PORT || 3000;
-let app = stack.app;
-let server = stack.server;
-server.listen(process.env.PORT);
+var _passport = require('passport');
 
-server.on('error', onError);
-server.on('listening', onListening);
+var passport = _interopRequireWildcard(_passport);
 
-/**
- * Normalize a port into a number, string, or false.
- */
+var _Users = require('../models/Users');
 
-function normalizePort(val) {
-  var port = parseInt(val, 10);
+var _jsonwebtoken = require('jsonwebtoken');
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+var jwt = _interopRequireWildcard(_jsonwebtoken);
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-  return false;
-}
+var LocalStrategy = require('passport-local').Strategy;
 
-/**
- * Event listener for HTTP server "error" event.
- */
+passport.default.serializeUser(function (user, done) {
+  done(null, user);
+});
 
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+passport.default.deserializeUser(function (obj, done) {
+  _Users.User.findOne({ _id: obj._id }, { passwordHash: 0, salt: 0 }, function (err, user) {
+    if (err) done(null, {});
+    done(null, user);
+  });
+});
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  // debug('Listening on ' + bind);
-  console.log('Listening on ' + bind);
-}
+passport.default.use(new LocalStrategy(function (username, password, done) {
+  _Users.User.findOne({ username: username }).select('+passwordHash +salt').exec(function (err, user) {
+    if (err) return done(err);
+    if (!user) return done(null, false, { message: 'Incorrect username.' });
+    if (!user.validatePassword(password)) return done(null, false, { message: 'Password does not match.' });
+    user.passwordHash = undefined;
+    user.salt = undefined;
+    return done(null, user);
+  });
+}));

@@ -2,19 +2,8 @@ import * as mongoose from 'mongoose';
 import * as crypto from 'crypto';
 import * as jwt from 'jsonwebtoken';
 import * as validator from 'validator';
-
-export interface IUser extends mongoose.Document {
-  username: string;
-  email: string;
-  passwordHash: string;
-  salt: string;
-  setPassword(password: string): boolean;
-  validatePassword(password: string): boolean;
-  generateJWT(): JsonWebKey;
-  roles: Array<string>;
-}
-
-let UserSchema = new mongoose.Schema({
+let Schema = mongoose.default.Schema;
+let UserSchema = new Schema({
   username: { type: String, lowercase: true, unique: true},
   email: {
     type: String,
@@ -45,4 +34,4 @@ UserSchema.method('generateJWT', function() {
   }, process.env.JWT_SECRET, {expiresIn: '2 days'});
 });
 
-export const User = mongoose.model<IUser>("User", UserSchema);
+export const User = mongoose.default.model("User", UserSchema);

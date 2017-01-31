@@ -1,3 +1,5 @@
+import angular from 'angular';
+
 angular.module('library-app',
   ['ngResource',
     'ui.router',
@@ -54,7 +56,7 @@ angular.module('library-app',
       requireBase: true,
       rewriteLinks: false
     });
-
+  
     $urlRouterProvider.otherwise('/badrequest');
 
     $httpProvider.interceptors.push([
@@ -97,7 +99,7 @@ angular.module('library-app',
         UserService,
         $sessionStorage,
         Session,
-        $state: ng.ui.IStateService,
+        $state,
         _,
         AUTH_EVENTS
       ) => {
