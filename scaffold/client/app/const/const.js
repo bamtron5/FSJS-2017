@@ -1,5 +1,5 @@
 //MAINTAIN ALPHABETICALLY
-angular.module('library-app')
+export default angular.module('library-app')
   .constant('AUTH_EVENTS', {
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',

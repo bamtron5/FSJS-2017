@@ -1,5 +1,8 @@
 module.exports = {
-  entry: './client/app.js',
+  entry: {
+    app: './client/app.js',
+    vendor: ['angular']
+  },
   output: {
     path: __dirname + '/client',
     filename: 'bundle.js'

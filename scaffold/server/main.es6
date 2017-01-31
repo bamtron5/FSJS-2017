@@ -99,7 +99,7 @@ app.use(passport.default.initialize());
 app.use(passport.default.session());
 
 //static routing
-app.use('/vendor', express.static('vendor'));
+app.use('/bower_components', express.static('bower_components'));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/client', express.static('client'));
 

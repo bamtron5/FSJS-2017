@@ -2,6 +2,7 @@
 
 ## Includes
  - Setup
+  - Jshint and linting
   - Package.json Scripts
     - `npm build` with babel from `es2015` to `es5`
     - `npm start`

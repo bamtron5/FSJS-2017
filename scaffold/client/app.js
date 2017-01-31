@@ -1,4 +1,6 @@
 import angular from 'angular';
+import CONSTANTS from './const/const.js';
+
 
 angular.module('library-app',
   ['ngResource',
@@ -56,7 +58,7 @@ angular.module('library-app',
       requireBase: true,
       rewriteLinks: false
     });
-  
+
     $urlRouterProvider.otherwise('/badrequest');
 
     $httpProvider.interceptors.push([
