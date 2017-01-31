@@ -22,6 +22,10 @@ body {
   color: rgb(13, 102, 128);
 }
 
+.reveal code.caption > * {
+  font-size: .65em;
+}
+
 .reveal {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 42px;

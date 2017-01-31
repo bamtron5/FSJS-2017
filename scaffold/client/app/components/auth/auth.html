@@ -1,0 +1,54 @@
+<md-card
+  layout="column"
+  style="margin:auto; display:block;"
+  class="md-whiteframe-1dp md-padding center-justify"
+  layout-align="center center" flex-xs="100" flex-sm="65">
+  <h1>Login</h1>
+  isAuth: {{vm.isAuth}}
+  <p>
+    <a href="/login/facebook" target="_self">Login with Facebook</a>
+  </p>
+
+  <form ng-submit="vm.login(vm.user)">
+    <md-input-container layout="row">
+      <label>User Name</label>
+      <input type="text" ng-model="vm.user.username" ng-required="true">
+    </md-input-container>
+
+    <md-input-container layout="row">
+      <label>Password</label>
+      <input type="password" ng-model="vm.user.password" ng-required="true">
+    </md-input-container>
+
+    <md-button aria-label="Login" class="md-raised md-primary" style="margin:auto; display:block;" type="submit">Login</md-button>
+  </form>
+</md-card>
+<br>
+<md-card layout="column" style="margin:auto; display:block;" class="md-whiteframe-1dp md-padding center-justify" layout-align="center center" flex-xs="100" flex-sm="65">
+  <h1>Register</h1>
+  <form name="register" ng-submit="vm.register(vm.newUser)">
+
+    <span ng-show="vm.regError.data.code === 11000" md-colors="{color: 'warn'}" class="md-caption">User must be unique.</span>
+    <md-input-container flex layout="row">
+      <label>User Name</label>
+      <input required type="text" ng-model="vm.newUser.username" ng-invalid="vm.regError.data.code === 11000">
+    </md-input-container>
+
+
+    <div ng-messages="register.email.$error" md-colors="{color: 'warn'}" class="md-caption">
+      <span ng-message="required" ng-show="register.email.$error">Email is required. </span>
+      <span ng-show="vm.regError.data.errors.email.message">{{vm.regError.data.errors.email.message}}</span>
+    </div>
+    <md-input-container flex layout="row">
+      <label>Email</label>
+      <input required type="email" ng-model="vm.newUser.email" required>
+    </md-input-container>
+
+    <md-input-container flex layout="row">
+      <label>Password</label>
+      <input required type="password" ng-model="vm.newUser.password" minlength="4" maxlength="30">
+    </md-input-container>
+    <md-button aria-label="Sign Up" type="submit" style="margin:auto; display:block;" class="md-raised md-primary">Sign Up</md-button>
+    <pre>{{vm.regError | json:2}}</pre>
+  </form>
+</md-card>

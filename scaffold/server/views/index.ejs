@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Library App</title>
+    <meta name="description" content=" " />
+    <meta name="author" content=" " />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <!-- Use maximum-scale and user-scalable at your own risk. It disables pinch/zoom. Think about usability/accessibility before including.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <base href="/">
+
+    <!-- startinjector:less -->
+    <!-- endinjector -->
+    <!-- startinjector:css -->
+    <link rel="stylesheet" href="/client/styles/app.css">
+    <!-- endinjector -->
+  </head>
+  <body ng-app="library-app" class="ng-cloak">
+    <ui-view loading></ui-view>
+
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="/vendor/angular/angular.js"></script>
+      <script src="/vendor/angular-sanitize/angular-sanitize.js"></script>
+      <script src="/vendor/angular-resource/angular-resource.js"></script>
+      <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="/vendor/angular-animate/angular-animate.js"></script>
+      <script src="/vendor/angular-aria/angular-aria.js"></script>
+      <script src="/vendor/angular-messages/angular-messages.js"></script>
+      <script src="/vendor/ngstorage/ngStorage.js"></script>
+      <script src="/vendor/lodash/lodash.js"></script>
+      <script src="/vendor/socket.io-client/dist/socket.io.js"></script>
+      <script src="/vendor/moment/moment.js"></script>
+      <script src="/vendor/angular-moment/angular-moment.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,client}) client/app.js -->
+      <!-- injector:js -->
+      <script src="/client/app.js"></script>
+      <script src="/client/app/directives/loading/loading.js"></script>
+      <script src="/client/app/directives/scrollToBottom.js"></script>
+      <script src="/client/app/components/auth/auth.js"></script>
+      <script src="/client/app/components/badrequest/badrequest.js"></script>
+      <script src="/client/app/components/main/main.js"></script>
+      <script src="/client/app/components/navigation/navigation.js"></script>
+      <script src="/client/app/components/splash/splash.js"></script>
+      <script src="/client/app/const/const.js"></script>
+      <script src="/client/app/filters/filters.js"></script>
+      <script src="/client/app/factories/socket.js"></script>
+      <script src="/client/app/services/ip.js"></script>
+      <script src="/client/app/services/session.js"></script>
+      <script src="/client/app/services/book.js"></script>
+      <script src="/client/app/services/user.js"></script>
+      <!-- endinjector -->
+    <!-- endbuild -->
+
+ 	</body>
+ </html>
