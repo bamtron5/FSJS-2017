@@ -6,6 +6,7 @@ import ConfigProvider from './app.config.js';
 
 //Component Pages
 import HomeComponent from './components/home/home';
+import AuthComponent from './components/auth/auth';
 
 //INJECT YOUR PAGES
 const topLevelComponents = [
@@ -13,29 +14,29 @@ const topLevelComponents = [
 ];
 
 //INJECT YOUR SUB COMPONENTS
-const lowLevelComponents = [
-
-];
+// const lowLevelComponents = [
+//
+// ];
 
 const topLevelProviders = [
   ConfigProvider
 ];
 
-const topLevelFactories = [
-
-];
-
-const topLevelDirectives = [
-
-];
-
-const topLevelServices = [
-
-];
-
-const topLevelFilters = [
-
-];
+// const topLevelFactories = [
+//
+// ];
+//
+// const topLevelDirectives = [
+//
+// ];
+//
+// const topLevelServices = [
+//
+// ];
+//
+// const topLevelFilters = [
+//
+// ];
 
 const Config = ['$locationProvider', ($locationProvider) => {
   $locationProvider.html5Mode(true);

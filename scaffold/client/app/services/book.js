@@ -2,8 +2,6 @@ export class BookService {
   constructor(
     $resource
   ) {
-    this.BookCount;
-    this.BookPaginate;
     this.BookResource = $resource('/api/books/:id',
       {id: '@id'},
       { update: { method: 'put' }, count: { method: 'get' }}

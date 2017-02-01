@@ -3,10 +3,8 @@
  */
 let stack = require('./../main').default;
 
-let port = process.env.PORT || 3000;
-let app = stack.app;
+let port = normalizePort(process.env.PORT) || 3000;
 let server = stack.server;
-let io = stack.io;
 server.listen(process.env.PORT);
 
 server.on('error', onError);
