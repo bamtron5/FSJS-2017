@@ -8,7 +8,7 @@ class Session {
 
   create(user) {
     this.$sessionStorage['user'] = user;
-  }
+  } 
 
   isAuthenticated() {
     let user = this.getUser();

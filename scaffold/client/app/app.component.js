@@ -56,7 +56,7 @@ const Config = ['$locationProvider', ($locationProvider) => {
 const Runners = () => {
 
 };
-
+ 
 class controller {
   constructor(
 
