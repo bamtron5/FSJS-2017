@@ -1,5 +1,5 @@
 // const name = 'navigation';
-// const template = './client/app/components/navigation/navigation.html';
+// const template = './client/ngApp/components/navigation/navigation.html';
 //
 // export class Navigation {
 //   constructor(

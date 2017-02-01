@@ -1,5 +1,5 @@
 const componentName = 'auth';
-const template = './client/app/components/auth/auth.html';
+const template = './client/ngApp/components/auth/auth.html';
 
 class Auth {
   constructor(

@@ -63,7 +63,7 @@ class controller {
 
 //TODO ngComponentRouter is deprecated use https://ui-router.github.io/guide/ng1/route-to-component
 const Component = {
-  templateUrl: './client/app/app.html',
+  templateUrl: './client/ngApp/app.html',
   controllerAs: 'vm',
   controller,
   $routeConfig: [
