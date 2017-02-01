@@ -4,18 +4,13 @@ import '@angular/router/angular1/angular_1_router';
 import 'ngstorage';
 
 import Constants from './const/const';
-
-//Providers
 import ConfigProvider from './app.config.js';
-//Component Pages
 import HomeComponent from './components/home/home';
-//Sub Components
 import AuthComponent from './components/auth/auth';
-//Services
 import UserService from './services/user';
 import SessionService from './services/session';
-//Factories
 import _ from './factories/lodash';
+import Filters from './filters/filters';
 
 //INJECT YOUR PAGES
 const topLevelComponents = [
@@ -43,10 +38,10 @@ const topLevelServices = [
   UserService,
   SessionService
 ];
-//
-// const topLevelFilters = [
-//
-// ];
+
+const topLevelFilters = [
+  Filters
+];
 
 const Config = ['$locationProvider', ($locationProvider) => {
   $locationProvider.html5Mode(true);
@@ -56,7 +51,7 @@ const Config = ['$locationProvider', ($locationProvider) => {
 const Runners = () => {
 
 };
- 
+
 class controller {
   constructor(
 
@@ -83,7 +78,7 @@ const Component = {
 
 const appDependencies = ['ngComponentRouter', 'ngResource', 'ngStorage'].concat(topLevelProviders);
 const modules = ['App'].concat(Constants, topLevelFactories, topLevelServices,
-  topLevelComponents, lowLevelComponents);
+  topLevelFilters, topLevelComponents, lowLevelComponents);
 const $body = document.body;
 
 angular

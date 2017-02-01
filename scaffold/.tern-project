@@ -8,7 +8,7 @@
   ],
   "dontLoad": [
     "node_modules/**",
-    "bower_components/**"
+    "bower_components/**",
     "client/app/bundle.js"
   ],
   "plugins": {
