@@ -1,5 +1,5 @@
 const name = 'loading';
-const template = '/client/app/directives/loading/loading.html';
+const template = '/client/ngApp/directives/loading/loading.html';
 
 export class Loading {
   constructor (

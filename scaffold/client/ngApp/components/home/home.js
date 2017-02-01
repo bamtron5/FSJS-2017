@@ -2,7 +2,7 @@ import angular from 'angular';
 
 //DEFINE IT
 const componentName = 'home';
-const template = './client/app/components/home/home.html';
+const template = './client/ngApp/components/home/home.html';
 
 //CLASSIFY IT
 class Home {
