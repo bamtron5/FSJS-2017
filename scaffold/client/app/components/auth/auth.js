@@ -1,34 +1,44 @@
 const componentName = 'auth';
 const template = './client/app/components/auth/auth.html';
 
-export class Auth {
-constructor(
-  UserService,
-  Session,
-  USER_ROLES
-) {
-  this.isAuth = this.Session.isAuthenticated();
+class Auth {
+  constructor(
+    UserService,
+    Session
+  ) {
+    this.UserService = UserService;
+    this.Session = Session;
+    this.isAuth = this.Session.isAuthenticated();
+  }
+
+  login(user) {
+    this.UserService.login(user).then((res) => {
+      this.Session.create(res);
+      //TODO componentRouter.go
+      // this.$state.go('home', null, {reload: true, notify:true});
+    }).catch(() => {
+      this.Session.destroy();
+    });
+  }
+
+  register(user) {
+    this.UserService.register(user).then(() => {
+      alert('Please login.');
+    }).catch(() => {
+      alert('create proper alerts');
+    });
+  }
 }
 
-login(user) {
-  this.UserService.login(user).then((res) => {
-    this.Session.create(res);
-    this.$state.go('home', null, {reload: true, notify:true});
-  }).catch((err) => {
-    this.Session.destroy();
-  });
-}
+Auth.$inject = ['UserService', 'Session'];
 
-register(user) {
-  this.UserService.register(user).then((res) => {
-    alert('Please login.');
-  }).catch((err) => {
-    this.regError = err;
-  });
-}
-}
-angular.module('library-app').component(componentName, {
-templateUrl: template,
-controller: Auth,
-controllerAs: 'vm'
-});
+const Component = {
+  templateUrl: template,
+  controller: Auth,
+  controllerAs: 'vm'
+};
+
+export default
+  angular.module('App.sub.auth', [])
+    .component(componentName, Component)
+    .name;

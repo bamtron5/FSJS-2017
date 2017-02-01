@@ -58,6 +58,7 @@
     "mongoose-type-email": "^1.0.2",
     "morgan": "^1.7.0",
     "ng-annotate": "^1.2.1",
+    "ngstorage": "^0.3.11",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",

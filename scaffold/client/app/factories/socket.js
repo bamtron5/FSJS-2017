@@ -1,4 +1,7 @@
-angular.module('library-app').factory('socket', () => {
-  let socket = io('/');
-  return socket;
-});
+import io from 'socket.io';
+export default
+  angular.module('App.factory.socket')
+    .factory('socket', () => {
+      let socket = io('/');
+      return socket;
+    }).name;

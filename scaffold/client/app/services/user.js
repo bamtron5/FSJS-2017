@@ -1,4 +1,4 @@
-export class UserService {
+class UserService {
   constructor(
     $resource
   ) {
@@ -29,4 +29,9 @@ export class UserService {
   }
 }
 
-angular.module('library-app').service('UserService', UserService);
+// UserService.$inject = ['$resource'];
+
+export default
+  angular.module('App.services.user', [])
+    .service('UserService', UserService)
+    .name;

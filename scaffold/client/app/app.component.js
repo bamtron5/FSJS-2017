@@ -1,12 +1,21 @@
 import angular from 'angular';
 import 'angular-resource';
 import '@angular/router/angular1/angular_1_router';
-import Constants from './const/const';
-import ConfigProvider from './app.config.js';
+import 'ngstorage';
 
+import Constants from './const/const';
+
+//Providers
+import ConfigProvider from './app.config.js';
 //Component Pages
 import HomeComponent from './components/home/home';
+//Sub Components
 import AuthComponent from './components/auth/auth';
+//Services
+import UserService from './services/user';
+import SessionService from './services/session';
+//Factories
+import _ from './factories/lodash';
 
 //INJECT YOUR PAGES
 const topLevelComponents = [
@@ -14,25 +23,26 @@ const topLevelComponents = [
 ];
 
 //INJECT YOUR SUB COMPONENTS
-// const lowLevelComponents = [
-//
-// ];
+const lowLevelComponents = [
+  AuthComponent
+];
 
 const topLevelProviders = [
   ConfigProvider
 ];
 
-// const topLevelFactories = [
-//
-// ];
+const topLevelFactories = [
+  _
+];
 //
 // const topLevelDirectives = [
 //
 // ];
 //
-// const topLevelServices = [
-//
-// ];
+const topLevelServices = [
+  UserService,
+  SessionService
+];
 //
 // const topLevelFilters = [
 //
@@ -68,8 +78,9 @@ const Component = {
   ]
 };
 
-const appDependencies = ['ngComponentRouter', 'ngResource'].concat(topLevelProviders);
-const modules = ['App'].concat(Constants, topLevelComponents);
+const appDependencies = ['ngComponentRouter', 'ngResource', 'ngStorage'].concat(topLevelProviders);
+const modules = ['App'].concat(Constants, topLevelFactories, topLevelServices,
+  topLevelComponents, lowLevelComponents);
 const $body = document.body;
 
 angular

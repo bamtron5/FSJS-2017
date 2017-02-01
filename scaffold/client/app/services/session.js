@@ -1,6 +1,7 @@
-export class Session {
+class Session {
   constructor(
-    $sessionStorage
+    $sessionStorage,
+    _
   ) {
     this.user = this.getUser();
   }
@@ -34,7 +35,7 @@ export class Session {
   }
 
   getUser() {
-    return this.$sessionStorage['user'] || {};
+    return this.$sessionStorage || {};
   }
 
   destroy() {
@@ -43,4 +44,9 @@ export class Session {
   }
 }
 
-angular.module('library-app').service('Session', Session);
+Session.$inject = ['$sessionStorage', '_'];
+
+export default
+  angular.module('App.services.session', [])
+    .service('Session', Session)
+    .name;
