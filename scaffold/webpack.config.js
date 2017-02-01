@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: './client/app/app.component.js'
+    app: './client/ngApp/app.component.js'
   },
   output: {
     path: __dirname + '/client',

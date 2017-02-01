@@ -1,6 +1,6 @@
 // //this is the MAIN CONTROLLER
 // const name = 'badrequest';
-// const template = './client/app/components/badrequest/badrequest.html';
+// const template = './client/ngApp/components/badrequest/badrequest.html';
 //
 // export class Badrequest {
 //   constructor(
