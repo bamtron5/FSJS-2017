@@ -50,6 +50,7 @@ const topLevelServices = [
 
 const Config = ['$locationProvider', ($locationProvider) => {
   $locationProvider.html5Mode(true);
+  // $locationProvider.otherwise('/');
 }];
 
 const Runners = () => {
@@ -64,6 +65,8 @@ class controller {
   }
 }
 
+
+//TODO ngComponentRouter is deprecated use https://ui-router.github.io/guide/ng1/route-to-component
 const Component = {
   templateUrl: './client/app/app.html',
   controllerAs: 'vm',
