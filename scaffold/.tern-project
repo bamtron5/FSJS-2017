@@ -1,0 +1,23 @@
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "client/*.js", "server/*.js"
+  ],
+  "dontLoad": [
+    "node_modules/**",
+    "bower_components/**"
+    "client/app/bundle.js"
+  ],
+  "plugins": {
+    "modules": {},
+    "es_modules": {},
+    "node": {},
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": true
+    }
+  }
+}

@@ -1,5 +1,7 @@
-//MAINTAIN ALPHABETICALLY
-export default angular.module('library-app')
+import angular from 'angular';
+
+export default angular.module('App.constants', [])
+  //MAINTAIN ALPHABETICALLY
   .constant('AUTH_EVENTS', {
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',
@@ -35,4 +37,5 @@ export default angular.module('library-app')
   .constant('USER_ROLES', {
     all: '*',
     admin: 'admin'
-  });
+  })
+  .name;

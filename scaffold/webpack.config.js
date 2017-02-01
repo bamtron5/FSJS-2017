@@ -1,7 +1,6 @@
 module.exports = {
   entry: {
-    app: './client/app.js',
-    vendor: ['angular']
+    app: './client/app/app.component.js'
   },
   output: {
     path: __dirname + '/client',
@@ -12,8 +11,8 @@ module.exports = {
       {
         test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
+        loader: ['ng-annotate-loader', 'babel-loader']
       }
     ]
   }
-}
+};
