@@ -4,13 +4,16 @@
   "description": "",
   "main": "server/bin/www",
   "scripts": {
-    "lint": "eslint src",
-    "build:express": "babel server -x .es6 --out-dir server",
-    "build:ng": "webpack --entry ngApp",
-    "build:react": "webpack --entry reactApp",
-    "watch:ng": "concurrently \"webpack --watch\" \"babel server -x .es6 --out-dir server -w\"",
-    "watch:react": "webpack-dev-server --entry reactApp",
-    "start": "npm run build:ng && nodemon"
+    "lint": "jshint",
+    "build:sass": "node-sass -r ./client/styles/ -o ./client/styles/",
+    "build:server": "babel server -x .es6 --out-dir server",
+    "build:client": "webpack",
+    "build": "npm run build:server && npm run build:client",
+    "watch:sass": "node-sass -r -w ./client/styles/ -o ./client/styles/",
+    "watch:server": "babel server -x .es6 --out-dir server -w",
+    "watch:client": "webpack --watch",
+    "dev": "concurrently \"nodemon\" \"npm run watch:sass\" \"npm run watch:server\" \"npm run watch:client\"",
+    "start": "node server/bin/www"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +40,7 @@
     "concurrently": "^3.1.0",
     "jshint": "^2.9.4",
     "ng-annotate-loader": "^0.2.0",
+    "node-sass": "^4.5.0",
     "react-hot-loader": "^1.3.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.16.3"

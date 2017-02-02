@@ -1,7 +1,7 @@
 
 // TURN ON BOOTSTRAP
-// @import 'variables/lumin';
-// @import '../../vendor/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import './variables/lumin.scss';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
 
 //COMPONENT SCSS
 // @import '../app/components/pagination/pagination.scss';
