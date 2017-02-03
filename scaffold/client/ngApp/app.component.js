@@ -2,6 +2,7 @@ import angular from 'angular';
 import 'angular-resource';
 import '@angular/router/angular1/angular_1_router';
 import 'ngstorage';
+import 'moment';
 
 import Constants from './const/const';
 import ConfigProvider from './app.config.js';
@@ -76,7 +77,7 @@ const Component = {
   ]
 };
 
-const appDependencies = ['ngComponentRouter', 'ngResource', 'ngStorage'].concat(topLevelProviders);
+const appDependencies = ['ngComponentRouter', 'ngResource', 'ngStorage', 'moment'].concat(topLevelProviders);
 const modules = ['App'].concat(Constants, topLevelFactories, topLevelServices,
   topLevelFilters, topLevelComponents, lowLevelComponents);
 const $body = document.body;

@@ -6,7 +6,7 @@ module.exports = {
     ]
   },
   output: {
-    path: './client',
+    path: __dirname + '/client',
     filename: '[name].js'
   },
   module: {
