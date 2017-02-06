@@ -11,7 +11,6 @@ angular.module('library-app').directive('scrollToBottom', function($timeout, $wi
             element[0].scrollTop = element[0].scrollHeight;
           }, 0);
         }
-
       });
     }
   };

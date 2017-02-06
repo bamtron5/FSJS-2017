@@ -4,7 +4,9 @@
     "browser"
   ],
   "loadEagerly": [
-    "client/*.js", "server/*.js"
+    "client/*.js",
+    "server/*.es6",
+    "server/*.jsx"
   ],
   "dontLoad": [
     "node_modules/**",
@@ -12,12 +14,18 @@
     "client/bundle.js"
   ],
   "plugins": {
-    "modules": {},
     "es_modules": {},
-    "node": {},
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
     "doc_comment": {
       "fullDocs": true,
       "strong": true
-    }
+    },
+    "node_resolve": {},
+    "angular": {},
+    "commonjs": {}
   }
 }
