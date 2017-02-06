@@ -89,6 +89,7 @@
     // Custom Globals
     "globals"       : {
         "angular": true,
-        "console": true
+        "console": true,
+        "react": true
       }        // additional predefined global variables
 }

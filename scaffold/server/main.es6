@@ -31,7 +31,7 @@ app.enable('trust proxy');
 app.use(helmet.default());
 
 //logging
-app.use(morgan.default('dev'));
+app.use(morgan.default('combined'));
 
 //config req.session your session
 let sess = {

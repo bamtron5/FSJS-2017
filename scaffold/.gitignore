@@ -3,3 +3,6 @@ node_modules
 server/**/*.js
 .env
 client/bundle.js
+client/ngApp.js
+client/reactApp.js
+dist
