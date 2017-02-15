@@ -19,11 +19,10 @@ var Hangman = (function () {
         this.selectedWord = this.words[randomInt];
         this.remainingWord = this.selectedWord.split('');
         this.solvedForWord = this.remainingWord.map(function () { return '_'; });
-        console.log(this.selectedWord);
         this.startGuessing();
     };
     Hangman.prototype.startGuessing = function () {
-        this.message = "Start guessing.  " + this.guesses + " " + (this.guesses === 1 ? 'guess' : 'guesses') + " remain.";
+        this.message = "\n      Your word length is\n      " + this.selectedWord + ".\n      " + this.guesses + "\n      " + (this.guesses === 1 ? 'guess' : 'guesses') + " remain.\n    ";
         while (this.guesses > 0 && !this.win && !this.cancel) {
             var guess = prompt(this.message);
             if (guess === null) {

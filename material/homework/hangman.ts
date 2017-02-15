@@ -18,7 +18,7 @@ class Hangman {
     this.begin(this.welcome) ? this.createGame() : alert('See you next time');
   }
 
-  begin(message) {
+  begin(message:string) {
     return confirm(message);
   }
 
@@ -27,12 +27,17 @@ class Hangman {
     this.selectedWord = this.words[randomInt];
     this.remainingWord = this.selectedWord.split('');
     this.solvedForWord = this.remainingWord.map(() => '_');
-    console.log(this.selectedWord);
     this.startGuessing();
   }
 
   startGuessing() {
-    this.message = `Start guessing.  ${this.guesses} ${this.guesses === 1 ? 'guess' : 'guesses'} remain.`;
+    this.message = `
+      Your word length is
+      ${this.selectedWord}.
+      ${this.guesses}
+      ${this.guesses === 1 ? 'guess' : 'guesses'} remain.
+    `;
+
     while(this.guesses > 0 && !this.win && !this.cancel) {
       var guess = prompt(this.message);
       if(guess === null) {
