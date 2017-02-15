@@ -10,6 +10,8 @@ let types = [
   String,
   Array,
   Error,
+  function(){},
+  Function,
   {},
   1,
   "1",
@@ -18,7 +20,9 @@ let types = [
   function(){},
   class MyClass{},
   // below this line should augmented gotchas
-  (() => 2 + "2")()
+  (() => 2 + "2")(),
+  new Date(),
+  Number('four')
 ];
 
 function getTypes() {

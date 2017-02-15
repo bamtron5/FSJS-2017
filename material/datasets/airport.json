@@ -1,0 +1,30 @@
+{
+    "delay": "false",
+    "IATA": "PHX",
+    "state": "Arizona",
+    "name": "Phoenix Sky Harbor International",
+    "weather": {
+        "visibility": 10.00,
+        "weather": "Mostly Cloudy",
+        "meta": {
+            "credit": "NOAA's National Weather Service",
+            "updated": "12:51 AM Local",
+            "url": "http://weather.gov/"
+        },
+        "temp": "62.0 F (16.7 C)",
+        "wind": "North at 0.0mph"
+    },
+    "ICAO": "KPHX",
+    "city": "Phoenix",
+    "status": {
+        "reason": "No known delays for this airport.",
+        "closureBegin": "",
+        "endTime": "",
+        "minDelay": "",
+        "avgDelay": "",
+        "maxDelay": "",
+        "closureEnd": "",
+        "trend": "",
+        "type": ""
+    }
+}
